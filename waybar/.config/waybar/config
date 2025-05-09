@@ -1,0 +1,226 @@
+{
+  "layer": "top",
+  "position": "top",
+  "spacing": 4,
+  "margin-top": 3,
+  "margin-bottom": 0,
+  "margin-left": 5,
+  "margin-right": 5,
+
+  "modules-left": [
+    "hyprland/workspaces",
+    "mpris",
+  ],
+
+  "modules-center": [
+    "clock"
+  ],
+
+  "modules-right": [
+    "backlight",
+    "pulseaudio",
+    "network",
+    "bluetooth",
+    "battery",
+    "custom/notification",
+  ],
+  
+
+  "cpu": {
+    "interval": 10,
+    "format": " {usage}%",
+    "max-length": 10,
+    "tooltip": false
+  },
+  
+  "clock": {
+		"format": "<b>󰥔  {:%H:%M   󰃭  %d/%m}</b> ",
+		//"format": "{:%a}",
+		"tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+                    "mode"          : "month",
+                    "format": {
+                              "months":     "<span color='#cdd6f4'><b>{}</b></span>",
+                              "days":       "<span color='#cdd6f4'><b>{}</b></span>",
+                              "weeks":      "<span color='#cdd6f4'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#cdd6f4'><b>{}</b></span>",
+                              "today":      "<span color='#f38ba8'><b>{}</b></span>"
+                              }
+                    },
+    },
+
+  "memory": {
+    "interval": 30,
+    "format": " {used}GiB",
+    "format-alt": " {used:0.1f}G",
+    "max-length": 10
+  },
+
+  "temperature": {
+    "format": " {temperatureF}°F"
+  },
+
+  "hyprland/window": {
+    "format": "  {}",
+    "rewrite": {
+      "(.*) - NVIM": "  NeoVim",
+      "(.*) — Mozilla Firefox": "󰈹  Firefox",
+      "  ": "󰇄  Desktop",
+      "(.*) Spotify Free": "󰓇  Spotify",
+      "(.*) Spotify": "󰓇  Spotify",
+      "  ~": "  home",
+      "(.*) - Obsidian(.*)": "󱓧  Obsidian",
+    }
+  },
+
+    "hyprland/workspaces" : {
+        "on-click": "activate",
+        "active-only": false,
+        "all-outputs": true,
+
+        "format": "{icon}",
+        "format-icons": {
+            "1":"󰎆 ",
+            "2":" ",
+            "3":"󰕷 ",
+            "4":" ",
+            "5":"󰽉 ",
+			"urgent": " ",
+			"default": " "
+        },
+
+        "persistent-workspaces": {
+            "*": 1,
+            "*": 2,
+            "*": 3,
+            "*": 4
+        },
+
+        //"format": "{windows}",
+        //"window-rewrite-default": " ",
+        //"format-window-separator": " ",
+        //"window-rewrite": {
+        //  "class<firefox> title<.*youtube.*>": " ", // Windows whose titles contain "youtube"
+        //  "class<firefox> title<.*music.*>": "󰎆",
+        //  "class<firefox> title<.*Музыка.*>": "󰎆",
+        //  "class<firefox>": " ", // Windows whose classes are "firefox"
+
+        //  "class<kitty> title<.*nvim.*>": "󰕷 ",
+        //  "class<kitty> title<.*cava.*>": "\u200b", // suppress useless icon \u200b 
+        //  "class<kitty>": " ", 
+
+        //  "class<Lorien>": "󰽉 ",
+        //  "class<org.telegram.desktop>": " ",
+        //  "class<thunderbird>": " ",
+        //  "class<org.gnome.Nautilus>": " "
+        //},
+
+    },
+  
+  "backlight": {
+    "format": "{icon} <b>{percent}%</b>",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "tooltip": false,
+   },  
+
+   "bluetooth": {
+       "format": "󰂱 ",
+       "format-disabled": "󰂲 ",
+       "format-connected": "󰂯 {num_connections}",
+       "tooltip-format": " {device_alias}",
+       "tooltip-format-connected": "{device_enumerate}",
+       "tooltip-format-enumerate-connected": " {device_alias} 󰂄{device_battery_percentage}%",
+       "tooltip": true,
+       "on-click": "blueman-manager",
+   },
+
+  "pulseaudio": {
+    "format": "{icon} <b>{volume}%</b>",
+    "format-bluetooth": "{icon} <b>{volume}%</b>",
+    "format-bluetooth-muted": "󰝟 ",
+    "format-muted": " 󰝟 ",
+    "format-icons": {
+      "headset": "",
+      "default": ["󰕿", "󰖀", "󰕾"],
+    },
+    "tooltip": false,
+    "on-click": "pavucontrol",
+  },
+
+  "network": {
+    "interval": 30,
+    "format-wifi": " ",
+    "format-ethernet": "󰈀 Wired",
+    "fomat-disconnected": "󱚵 Disconnected",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+  },
+
+  "mpris": {
+    "format": " {status_icon} {dynamic}",
+    "max-length": 20,
+    "status-icons": {
+        "playing": "▶",
+        "paused": "⏸",
+        "stopped": ""
+	    },
+	  "dynamic-order": ["title", "artist"],
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-icons": ["󰂎", "󰁻", "󰁽", "󰁿", "󰂁", "󰁹"],
+    "max-length": 25,
+    "tooltip": false,
+  },
+
+
+  "tray": {
+    "icon-size": 20,
+    "spacing": 10,
+  },
+
+  "custom/separator-space": {
+    "format": " ",
+    "tooltip": false,
+  },
+
+  "custom/separator-gap": {
+    "format": "  ",
+    "tooltip": false,
+  },
+
+  "custom/separator-arrow": {
+    "format": "  ",
+    "tooltip": false,
+  },
+
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫 ",
+      "none": "󰂚 ",
+      "dnd-notification": "󰵙 ",
+      "dnd-none": "󰂛 ",
+      "inhibited-notification": "󱅫 ",
+      "inhibited-none": "󰂚 ",
+      "dnd-inhibited-notification": "󰵙 ",
+      "dnd-inhibited-none": "󰂛​ "
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+
+}

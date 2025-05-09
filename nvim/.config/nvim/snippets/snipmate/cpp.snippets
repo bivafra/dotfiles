@@ -1,0 +1,51 @@
+snippet tmpl
+    template <${1:typename} ${2:T}>
+    $0
+
+snippet nspc 
+    namespace ${1:Name} {
+    ${2}
+    } // namespace ${1: Name}
+
+snippet nlib
+    namespace bmb {
+
+    ${1}
+
+    } // namespace bmb
+
+snippet detail Namespace detail
+    namespace detail {
+
+    ${1}
+
+    } // namespace detail
+
+snippet comfun Function comment
+    /**
+     * @brief ${1:A one-line summary}
+     *
+     * @param ${4:Name and description of the parameter}
+     * @return ${2:Description of the returned value}
+     *
+     * @throws ${3:Description of the exception safety and possible exceptions}
+     */$0
+
+snippet comcl Class comment
+    /**
+     * @class ${1:Class name}
+     * @brief ${2:A one-line summary}
+     */$0
+
+snippet @tparam Name and description of the template parameter
+    @tparam ${1:Name and description of the template parameter}$0
+
+snippet @param Name and description of the parameter
+    @param ${1:Name and description of the parameter}$0
+
+snippet @return Description of the returned value
+    @return ${1:Description of the returned value}$0
+
+snippet @throws Description of the exception safety and possible exceptions
+    @throws ${1:Description of the exception safety and possible exceptions}$0
+
