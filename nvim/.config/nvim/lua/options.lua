@@ -33,13 +33,31 @@ vim.lsp.set_log_level("off") -- Clang log file was huge ~500mb. So disable it
 
 vim.opt.mps:append("<:>")    -- for  jumping betweeen <> like ()
 
+
+
+
+
 -- format on file save
-vim.api.nvim_create_autocmd("BufWritePre", {
-    buffer = buffer,
-    callback = function()
-        vim.lsp.buf.format { async = false }
-    end
-})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--     buffer = buffer,
+--     callback = function()
+--     -- vim.lsp.buf.format(...)
+--         require("conform").format { lsp_fallback = true }
+--     end
+-- })
+-- foramt on file save (*from conform) (now it is built-in in conform)
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--     pattern = "*",
+--     callback = function(args)
+--         require("conform").format({ bufnr = args.buf })
+--     end,
+-- })
+
+
+
+
+
+
 -- vim.cmd([[
 -- function!   QuickFixOpenAll()
 --     if empty(getqflist())
